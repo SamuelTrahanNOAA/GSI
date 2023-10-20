@@ -26,6 +26,12 @@ module use $DIR_ROOT/modulefiles
 module load gsi_$MACHINE_ID
 module list
 
+if [[ "$MACHINE_ID" == "gaea" ]] ; then
+    # Disable MKL by default on GAEA. Putting this at the beginning of CMAKE_OPTS allows
+    # the caller to override it by putting it in the CMAKE_OPTS before running build.sh
+    CMAKE_OPTS="-DENABLE_MKL=OFF${CMAKE_OPTS:+ $CMAKE_OPTS}"
+fi
+
 # Set CONTROLPATH variables for Regression testing on supported MACHINE_ID
 if [[ $MACHINE_ID = wcoss ]] ; then
     CONTROLPATH="/da/save/Michael.Lueken/svn1/build"
