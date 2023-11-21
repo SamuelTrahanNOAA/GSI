@@ -13,6 +13,7 @@ case $(hostname -f) in
   gaea1[0-6])          MACHINE_ID=gaea ;; ### gaea10-16
   gaea9.ncrc.gov)      MACHINE_ID=gaea ;; ### gaea9
   gaea1[0-6].ncrc.gov) MACHINE_ID=gaea ;; ### gaea10-16
+  gaea5[0-9]*)         MACHINE_ID=gaea_c5 ;; ### GAEA C5 partition login nodes
 
   hfe0[1-9]) MACHINE_ID=hera ;; ### hera01-9
   hfe1[0-2]) MACHINE_ID=hera ;; ### hera10-12
